@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="fullname">
+    <input type="text" id="course">
+
+    <button onclick="saveStudent()">Save</button>
+
+    <a href="delete.php">Delete Records</a><a href="update.php">Update Records</a><a href="view.php">View Records</a>
+
+
+    <script>
+        function saveStudent() {
+
+            var fullname = document.getElementById("fullname").value;
+            var course = document.getElementById("course").value;
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", "ajax_insert.php", true);
+
+            xhr.setRequestHeader(
+                "Content-type",
+                "application/x-www-form-urlencoded"
+            );
+
+            xhr.send(
+                "fullname=" + fullname +
+                "&course=" + course
+            );
+
+        }
+    </script>
+</body>
+</html>
+
+
+
